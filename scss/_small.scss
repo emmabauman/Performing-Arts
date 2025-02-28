@@ -1,0 +1,210 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/*  Apply a natural box layout model to all elements  */
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+} // end all elements
+
+
+/* --------------------------- BODY --------------------------- */
+body {
+    font-family: $defaultFont;
+    font-weight: $lightWeight;
+    min-width: 320px;
+}
+
+
+
+/* --------------------------- HEADER --------------------------- */
+#headerWrapper {
+    border-bottom: 1px solid $greyColor;
+    width: 100vw; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background: $primaryColor; 
+    padding: 1rem 0;
+}
+
+header {
+    width: 100%;
+    max-width: 1200px; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 2rem;
+
+    .logo-title {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        span {
+            font-size: 1.6rem;
+            font-weight: $lightWeight;
+            color: white;
+        }
+    }
+
+    .contact-info {
+        .phone-number {
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+
+            &:hover {
+                color: lighten($primaryColor, 30%);
+            }
+        }
+    }
+}
+
+// Responsive Adjustments
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .logo-title {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-info {
+        margin-top: 0.5rem;
+    }
+}
+
+
+/* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
+
+
+#navWrapper {
+    background-color: $primaryColor;
+}
+
+nav {
+    ul {
+        padding: 0;
+        margin: 0 $gutter;
+        display: flex;
+        gap: 10px;
+    }
+
+    ul li {
+        list-style-type: none;
+    }
+
+    ul li a {
+        color: $greyColor;
+        text-decoration: none;
+        padding: 0.8rem $gutter;
+        display: block;
+        border-radius: 10px;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    // Active state
+    ul li.active a {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: $primaryColor;
+        border-radius: 10px;
+    }
+
+    // Hover effect (without underline)
+    ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: $primaryColor;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* --------------------------- MAIN --------------------------- */
+main {
+    padding: 1rem 2vw;
+}
+
+h1 {
+    padding: 1rem $gutter 0.5rem;
+    font-size: 1.5rem;
+    color: $secondaryColor;
+    font-weight: $lightWeight;
+}
+
+/* --------------------------- SHOWS GRID --------------------------- */
+.shows {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Responsive grid
+    gap: 1rem;
+}
+
+.shows div {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 1rem;
+}
+
+.shows img {
+    width: 100%;
+    height: auto;
+}
+
+/* --------------------------- FOOTER --------------------------- */
+#footerWrapper {
+    background-color: $primaryColor
+} // end footer wrapper
+
+footer {
+    font-size: .85rem;
+    padding: 1rem $gutter;
+    color: $greyColor;
+    text-align: center;
+    line-height: $leading;
+    a {color: $greyColor;}
+}// end footer
